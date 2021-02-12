@@ -1,23 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import theme from '../src/theme.json';
+import theme from '../src/theme';
 import Reset from 'styled-reset';
 
-const Title = styled.h1`
-  color: red;
-  font-size: 50px;
-`;
+//Components
+import App from '../src/App';
+import { Toolbar } from '../src/components/toolbar';
+import Sidebar from '../src/components/sidebar';
+
 const Global = createGlobalStyle`
   ${Reset}
-
 `;
 
 export default function Home() {
   return (
-    <div id="App">
+    <>
       <Global />
-      <ThemeProvider theme={theme}>Hello World</ThemeProvider>
-    </div>
+      <ThemeProvider theme={theme}>
+        <App>
+          <Toolbar variant={0} />
+          <Sidebar variant={0} />
+        </App>
+      </ThemeProvider>
+    </>
   );
 }
