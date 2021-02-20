@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const InputTest = styled.input`
   width: 200px;
-  height: 40px;
+  height: 20px;
   background-color: black;
   border: 1px solid black;
   display: flex;
@@ -29,3 +29,5 @@ export interface InputStyled {
 export const Input: React.FC<InputStyled> = ({ placeholder, ...props }) => (
   <InputTest placeholder={placeholder} />
 );
+
+export default Input;

@@ -17,6 +17,8 @@ const Component = styled.div<Iprops>`
   width: 100%;
   height: 30px;
   position: fixed;
+  display: flex;
+  align-items: center;
   top: 0;
   z-index: 2;
   ${(props) => {
@@ -38,5 +40,5 @@ const Component = styled.div<Iprops>`
 `;
 
 export const Toolbar: React.FC<Iprops> = ({ variant, ...props }) => (
-  <Component variant={variant} />
+  <Component variant={variant}>{props.children}</Component>
 );

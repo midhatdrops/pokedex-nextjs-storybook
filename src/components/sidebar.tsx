@@ -36,7 +36,7 @@ const Component = styled.div<sidebarProps>`
 `;
 
 const Sidebar: React.FC<sidebarProps> = ({ variant, ...props }) => (
-  <Component variant={variant} />
+  <Component variant={variant}>{props.children}</Component>
 );
 
 export default Sidebar;

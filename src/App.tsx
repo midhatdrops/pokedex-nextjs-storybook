@@ -7,6 +7,7 @@ const App = styled.div`
   z-index: 0;
   background-color: ${(props) => props.theme.palette.common.black};
   color: ${({ theme }) => theme.palette.common.white};
+  box-sizing: border-box;
 `;
 
 export default App;
