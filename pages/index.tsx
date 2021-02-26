@@ -37,7 +37,7 @@ export default function Home() {
   });
 
   function renderRow(rowNumber: number, pokemonIndex: number) {
-    let mapping = [];
+    let mapping: JSX.Element[] = [];
     let id = pokemonIndex;
     for (let x = 1; x <= 4; x++) {
       id++;

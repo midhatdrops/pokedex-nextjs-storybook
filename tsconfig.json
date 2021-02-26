@@ -21,6 +21,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules","stories","__tests__"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }
