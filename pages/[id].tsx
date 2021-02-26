@@ -1,14 +1,20 @@
-import React from 'react';
+import { GetServerSideProps } from 'next';
 
-let id = 0;
 const PokemonPage: React.FC = (props) => {
   return <h1>Hello World</h1>;
 };
 
+type Data = {};
+
 export default PokemonPage;
 
-export async function getServerSideProps(context) {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const res = await fetch('https://.../data');
+  const data: Data = await res.json();
+
   return {
-    props: {}, // will be passed to the page component as props
+    props: {
+      data,
+    },
   };
-}
+};
