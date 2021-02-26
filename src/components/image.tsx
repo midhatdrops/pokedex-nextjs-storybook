@@ -9,6 +9,6 @@ const Component = styled.img`
   background-image: url('');
 `;
 
-export const Image: React.FC = (props) => <Component />;
+export const Image: React.FC = () => <Component />;
 
 export default Image;

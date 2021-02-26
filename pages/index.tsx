@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import theme from '../src/theme';
 import Reset from 'styled-reset';
-import axios from 'axios';
 
 // Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -23,8 +21,6 @@ import PokemonGrid from '../src/components/pokemonGrid';
 import PokemonBadge from '../src/components/pokemonBadge';
 
 // Handlers
-
-import { GetPokemon, PokemonData } from '../src/Handlers/pokeRequest';
 
 const Global = createGlobalStyle`
   ${Reset}

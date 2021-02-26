@@ -6,6 +6,6 @@ const Component = styled.div`
   flex-grow: 0.5;
 `;
 
-const FlexGrown: React.FC = (props) => <Component />;
+const FlexGrown: React.FC = () => <Component />;
 
 export default FlexGrown;

@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import path from 'path';
 
 function IndexPage() {
   return (
