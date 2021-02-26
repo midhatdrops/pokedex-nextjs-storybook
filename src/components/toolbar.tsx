@@ -15,7 +15,7 @@ interface Iprops {
 
 const Component = styled.div<Iprops>`
   width: 100%;
-  height: 30px;
+  height: 40px;
   position: fixed;
   display: flex;
   align-items: center;

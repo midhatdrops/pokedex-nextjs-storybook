@@ -1,14 +1,20 @@
 import axios from 'axios';
 
-interface PokemonData {
+export interface Type {
+  slot: number;
+  type: {
+    name: string;
+    url: string;
+  };
+}
+export interface PokemonData {
   name: string;
+  types: Type[];
 }
 
-async function GetPokemon(id = 1) {
-  const PokemonData: PokemonData = await axios
-    .get('https://pokeapi.co/api/v2/pokemon/1')
-    .then((res) => res.data.name);
+export async function GetPokemon(id = 1) {
+  const PokemonData = await axios
+    .get<PokemonData>('https://pokeapi.co/api/v2/pokemon/1')
+    .then((res) => res.data);
   return PokemonData;
 }
-
-export default GetPokemon;

@@ -5,7 +5,8 @@ export interface Pokemon {
   /**
    * Area refere-se a àrea na PokemonGrid
    */
-  area: String;
+  row: number;
+  col: number;
 }
 
 const Component = styled.div<Pokemon>`
@@ -15,9 +16,10 @@ const Component = styled.div<Pokemon>`
   border: 1px solid whitesmoke;
   border-radius: 5px;
   color: whitesmoke;
-  ${(props) => `grid-area: ${props.area}`}
+  ${(props) => `grid-row: ${props.row}`};
+  ${(props) => `grid-col: ${props.col}`};
 `;
 
-export const PokemonBadge: React.FC<Pokemon> = ({ area, ...props }) => (
-  <Component area={area} />
+export const PokemonBadge: React.FC<Pokemon> = ({ row, col, ...props }) => (
+  <Component row={row} col={col} />
 );

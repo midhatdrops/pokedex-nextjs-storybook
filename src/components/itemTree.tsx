@@ -8,6 +8,7 @@ enum VARIANTS {
 
 interface IProps {
   variant: VARIANTS;
+  onClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
 const Component = styled.div<IProps>`
@@ -44,8 +45,12 @@ const Component = styled.div<IProps>`
   }} */
 `;
 
-const ItemTree: React.FC<IProps> = ({ variant, ...props }) => {
-  return <Component variant={variant}>{props.children}</Component>;
+const ItemTree: React.FC<IProps> = ({ variant, onClick, ...props }) => {
+  return (
+    <Component variant={variant} onClick={onClick}>
+      {props.children}
+    </Component>
+  );
 };
 
 export default ItemTree;

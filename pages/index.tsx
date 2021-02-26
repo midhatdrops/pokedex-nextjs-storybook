@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import theme from '../src/theme';
 import Reset from 'styled-reset';
 import axios from 'axios';
+
+// Icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Head from '../src/components/header';
 
@@ -21,13 +24,32 @@ import PokemonBadge from '../src/components/pokemonBadge';
 
 // Handlers
 
-import GetPokemon from '../src/Handlers/pokeRequest';
+import { GetPokemon, PokemonData } from '../src/Handlers/pokeRequest';
 
 const Global = createGlobalStyle`
   ${Reset}
 `;
 
 export default function Home() {
+  const [id, setId] = useState(0);
+  const [state, setState] = useState('LOADING');
+  console.log(state);
+  useEffect(() => {
+    setTimeout(() => {
+      setState('LOADED');
+    }, 2000);
+  });
+
+  function renderRow(rowNumber: number, pokemonIndex: number) {
+    let mapping = [];
+    let id = pokemonIndex;
+    for (let x = 1; x <= 4; x++) {
+      id++;
+      mapping.push(<PokemonBadge row={rowNumber} col={x} id={id} key={id} />);
+    }
+    return mapping;
+  }
+
   return (
     <>
       <Head />
@@ -40,21 +62,29 @@ export default function Home() {
           </Toolbar>
           <Sidebar variant={0}>
             <MenuTree>
-              <ItemTree variant={0}>
-                <i className="fas fa-arrow-right"></i>
+              <ItemTree variant={0} onClick={() => setId(id + 12)}>
+                <FontAwesomeIcon icon="arrow-right" size="6x" />
                 Avançar
               </ItemTree>
-              <ItemTree variant={0}>
+              <ItemTree
+                variant={0}
+                onClick={() => (id === 0 ? setId(0) : setId(id - 12))}
+              >
                 <i className="fas fa-arrow-right"></i>
-                Retroceder
+                Voltar
               </ItemTree>
             </MenuTree>
           </Sidebar>
-          <PokemonGrid>
-            <PokemonBadge area="Pokemon1" />
-            <PokemonBadge area="Pokemon2" />
-            <PokemonBadge area="Pokemon3" />
-          </PokemonGrid>
+          {state === 'LOADING' && ''}
+          {state === 'LOADED' && (
+            <>
+              <PokemonGrid>
+                {renderRow(1, id).map((e) => e)}
+                {renderRow(2, id + 4).map((e) => e)}
+                {renderRow(3, id + 8).map((e) => e)}
+              </PokemonGrid>
+            </>
+          )}
         </App>
       </ThemeProvider>
     </>

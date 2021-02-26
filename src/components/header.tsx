@@ -1,15 +1,6 @@
 import Head from 'next/head';
 import path from 'path';
 
-const fontAwesome = path.join(
-  __dirname,
-  '../',
-  'node_modules',
-  '@fortawesome',
-  'fontawesome-free',
-  'js'
-);
-
 function IndexPage() {
   return (
     <Head>
@@ -37,18 +28,6 @@ function IndexPage() {
       />
 
       {/* font-awesome */}
-      <script
-        defer
-        src={`../node_modules/@fortawesome/fontawesome-free/js/brands.js`}
-      ></script>
-      <script
-        defer
-        src={`../node_modules/@fortawesome/fontawesome-free/js/solid.js`}
-      ></script>
-      <script
-        defer
-        src={`../node_modules/@fortawesome/fontawesome-free/js/fontawesome.js`}
-      ></script>
     </Head>
   );
 }
